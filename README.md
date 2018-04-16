@@ -35,15 +35,15 @@ p forecast.weather
 p forecast.start_time
 p forecast.end_time
 # Enumerate
-p forcast.prev
-p forcast.succ
+p forecast.prev
+p forecast.succ
 
 ## Upcoming and past
 p EorzeaWeather.forecasts(:eureka_anemos)
 p EorzeaWeather.history(:eureka_anemos)
 # Need more?
-p EorzeaWeather.forecasts(:eureka_anemos, counts: 10)
-p EorzeaWeather.history(:eureka_anemos, counts: 10)
+p EorzeaWeather.forecasts(:eureka_anemos, count: 10)
+p EorzeaWeather.history(:eureka_anemos, count: 10)
 ```
 
 ## Development
