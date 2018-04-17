@@ -13,7 +13,7 @@ module EorzeaWeather
     end
 
     def succ
-      self.class.new(@zone, end_time)
+      self.class.new(@zone, end_time + 1)
     end
 
     attr_reader :zone, :time
