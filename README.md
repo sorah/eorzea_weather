@@ -24,6 +24,8 @@ require 'eorzea_weather'
 ## Get single forecast
 # Pick zone
 forecast = EorzeaWeather.forecast(EorzeaWeather::Data::Zones::EurekaAnemos)
+forecast = EorzeaWeather.forecast('Eureka Anemos')
+forecast = EorzeaWeather.forecast('エウレカ:アネモス帯')
 forecast = EorzeaWeather.forecast(:eureka_anemos)
 # Specify date
 forecast = EorzeaWeather.forecast(:eureka_anemos, Time.utc(2018,4,17,7,0,0))
@@ -47,6 +49,8 @@ p EorzeaWeather.history(:eureka_anemos, count: 10)
 
 ## Find next specific weather in a zone
 p EorzeaWeather.find_next(:gales, :eureka_anemos)
+p EorzeaWeather.find_next('暴風', :eureka_anemos)
+p EorzeaWeather.find_next('Gales', :eureka_anemos)
 # From specific time?
 p EorzeaWeather.find_next(:gales, :eureka_anemos, time: Time.utc(2018,4,16,16,0,0))
 # Need to dig more? (Default to 60 times, next 3 days in earth)
@@ -58,7 +62,18 @@ p EorzeaWeather.find(:gales, :eureka_anemos)
 p EorzeaWeather.find(:gales, :eureka_anemos, time: Time.utc(2018,4,16,16,0,0))
 # Need to dig more? (Default to 60 times, next 3 days in earth)
 p EorzeaWeather.find(:gales, :eureka_anemos, max_attempts: 120)
+```
 
+### Localized string
+
+``` ruby
+p EorzeaWeather::Localizer.new(:zone, :eureka_anemos).to_h
+p EorzeaWeather::Localizer.new(:zone, :eureka_anemos)[:en]
+p EorzeaWeather::Localizer.new(:zone, :eureka_anemos)[:ja]
+
+p EorzeaWeather::Localizer.new(:weather, :gales).to_h
+p EorzeaWeather::Localizer.new(:weather, :gales)[:en]
+p EorzeaWeather::Localizer.new(:weather, :gales)[:ja]
 ```
 
 ## Development
