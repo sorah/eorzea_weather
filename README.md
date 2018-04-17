@@ -44,6 +44,21 @@ p EorzeaWeather.history(:eureka_anemos)
 # Need more?
 p EorzeaWeather.forecasts(:eureka_anemos, count: 10)
 p EorzeaWeather.history(:eureka_anemos, count: 10)
+
+## Find next specific weather in a zone
+p EorzeaWeather.find_next(:gales, :eureka_anemos)
+# From specific time?
+p EorzeaWeather.find_next(:gales, :eureka_anemos, time: Time.utc(2018,4,16,16,0,0))
+# Need to dig more? (Default to 60 times, next 3 days in earth)
+p EorzeaWeather.find_next(:gales, :eureka_anemos, max_attempts: 120)
+
+## Find specific weather in zone
+p EorzeaWeather.find(:gales, :eureka_anemos)
+# From specific time?
+p EorzeaWeather.find(:gales, :eureka_anemos, time: Time.utc(2018,4,16,16,0,0))
+# Need to dig more? (Default to 60 times, next 3 days in earth)
+p EorzeaWeather.find(:gales, :eureka_anemos, max_attempts: 120)
+
 ```
 
 ## Development

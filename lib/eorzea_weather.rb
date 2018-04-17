@@ -20,6 +20,23 @@ module EorzeaWeather
     end
   end
 
+  def self.find_next(weather, zone, time: Time.now, max_attempts: 60)
+    find(weather, zone, time: time, max_attempts: max_attempts, count: 1)[0]
+  end
+
+  def self.find(weather, zone, time: Time.now, max_attempts: 60, count: 1)
+    result = []
+    forecast = self.forecast(zone, time)
+    max_attempts.times do
+      if forecast.weather == weather
+        result << forecast
+      end
+      forecast = forecast.succ
+    end
+
+    result
+  end
+
   def self.forecast(zone, time = Time.now)
     Calculator.new(self.zone(zone), time)
   end
