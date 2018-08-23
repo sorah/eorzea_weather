@@ -70,6 +70,14 @@ module EorzeaWeather
         [90, :showers],
         [nil, :snow],
       ])
+      EurekaPagos = Zone.new(:eureka_pagos, [
+        [10, :clear_skies],
+        [28, :fog],
+        [46, :heat_waves],
+        [64, :snow],
+        [82, :thunder],
+        [nil, :blizzards],
+      ])
       Gridania = Zone.new(:gridania, [
         [20, :rain],
         [30, :fog],
