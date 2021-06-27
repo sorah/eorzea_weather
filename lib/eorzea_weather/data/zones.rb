@@ -1,10 +1,24 @@
 module EorzeaWeather
   module Data
     module Zones
+      AmhAraeng = Zone.new(:amh_araeng, [
+        [45, :fair_skies],
+        [60, :clouds],
+        [70, :dust_storms],
+        [80, :heat_waves],
+        [nil, :clear_skies],
+      ])
       AzysLla = Zone.new(:azys_lla, [
         [35, :fair_skies],
         [70, :clouds],
         [nil, :thunder],
+      ])
+      BozjanSouthernFront = Zone.new(:bozjan_southern_front, [
+        [52, :fair_skies],
+        [64, :rain],
+        [76, :wind],
+        [88, :thunder],
+        [nil, :dust_storms],
       ])
       CentralShroud = Zone.new(:central_shroud, [
         [5, :thunder],
@@ -64,10 +78,25 @@ module EorzeaWeather
         [85, :clear_skies],
         [nil, :fair_skies],
       ])
+      Eulmore = Zone.new(:eulmore, [
+        [10, :gales],
+        [20, :rain],
+        [30, :fog],
+        [45, :clouds],
+        [85, :fair_skies],
+        [nil, :clear_skies],
+      ])
       EurekaAnemos = Zone.new(:eureka_anemos, [
         [30, :fair_skies],
         [60, :gales],
         [90, :showers],
+        [nil, :snow],
+      ])
+      EurekaHydatos = Zone.new(:eureka_hydatos, [
+        [12, :fair_skies],
+        [34, :showers],
+        [56, :gloom],
+        [78, :thunderstorms],
         [nil, :snow],
       ])
       EurekaPagos = Zone.new(:eureka_pagos, [
@@ -77,6 +106,14 @@ module EorzeaWeather
         [64, :snow],
         [82, :thunder],
         [nil, :blizzards],
+      ])
+      EurekaPyros = Zone.new(:eureka_pyros, [
+        [10, :fair_skies],
+        [28, :heat_waves],
+        [46, :thunder],
+        [64, :blizzards],
+        [82, :umbral_wind],
+        [nil, :snow],
       ])
       Gridania = Zone.new(:gridania, [
         [20, :rain],
@@ -94,6 +131,14 @@ module EorzeaWeather
         [70, :clear_skies],
         [nil, :fair_skies],
       ])
+      IlMheg = Zone.new(:il_mheg, [
+        [10, :rain],
+        [20, :fog],
+        [35, :clouds],
+        [45, :thunderstorms],
+        [60, :clear_skies],
+        [nil, :fair_skies],
+      ])
       Ishgard = Zone.new(:ishgard, [
         [60, :snow],
         [70, :fair_skies],
@@ -101,12 +146,28 @@ module EorzeaWeather
         [90, :clouds],
         [nil, :fog],
       ])
+      Kholusia = Zone.new(:kholusia, [
+        [10, :gales],
+        [20, :rain],
+        [30, :fog],
+        [45, :clouds],
+        [85, :fair_skies],
+        [nil, :clear_skies],
+      ])
       Kugane = Zone.new(:kugane, [
         [10, :rain],
         [20, :fog],
         [40, :clouds],
         [80, :fair_skies],
         [nil, :clear_skies],
+      ])
+      Lakeland = Zone.new(:lakeland, [
+        [20, :clear_skies],
+        [60, :fair_skies],
+        [75, :clouds],
+        [85, :fog],
+        [95, :rain],
+        [nil, :thunderstorms],
       ])
       LimsaLominsa = Zone.new(:limsa_lominsa, [
         [20, :clouds],
@@ -213,6 +274,20 @@ module EorzeaWeather
         [70, :clear_skies],
         [nil, :fair_skies],
       ])
+      TheCrystarium = Zone.new(:the_crystarium, [
+        [20, :clear_skies],
+        [60, :fair_skies],
+        [75, :clouds],
+        [85, :fog],
+        [95, :rain],
+        [nil, :thunderstorms],
+      ])
+      TheDiadem = Zone.new(:the_diadem, [
+        [30, :fair_skies],
+        [60, :fog],
+        [90, :wind],
+        [nil, :umbral_wind],
+      ])
       TheDravanianForelands = Zone.new(:the_dravanian_forelands, [
         [10, :clouds],
         [20, :fog],
@@ -267,6 +342,14 @@ module EorzeaWeather
         [95, :wind],
         [nil, :dust_storms],
       ])
+      TheRaktikaGreatwood = Zone.new(:the_raktika_greatwood, [
+        [10, :fog],
+        [20, :rain],
+        [30, :umbral_wind],
+        [45, :clear_skies],
+        [85, :fair_skies],
+        [nil, :clouds],
+      ])
       TheRubySea = Zone.new(:the_ruby_sea, [
         [10, :thunder],
         [20, :wind],
@@ -281,6 +364,11 @@ module EorzeaWeather
         [80, :fog],
         [90, :wind],
         [nil, :umbral_wind],
+      ])
+      TheTempest = Zone.new(:the_tempest, [
+        [20, :clouds],
+        [80, :fair_skies],
+        [nil, :clear_skies],
       ])
       Uldah = Zone.new(:uldah, [
         [40, :clear_skies],
@@ -312,6 +400,13 @@ module EorzeaWeather
         [95, :fog],
         [nil, :rain],
       ])
+      WolvesDenPier = Zone.new(:wolves_den_pier, [
+        [20, :clouds],
+        [50, :clear_skies],
+        [80, :fair_skies],
+        [90, :fog],
+        [nil, :thunderstorms],
+      ])
       Yanxia = Zone.new(:yanxia, [
         [5, :showers],
         [15, :rain],
@@ -319,6 +414,13 @@ module EorzeaWeather
         [40, :clouds],
         [80, :fair_skies],
         [nil, :clear_skies],
+      ])
+      Zadnor = Zone.new(:zadnor, [
+        [60, :fair_skies],
+        [70, :rain],
+        [80, :wind],
+        [90, :thunder],
+        [nil, :snow],
       ])
 
       MAP = (self.constants - [:MAP]).map(&self.method(:const_get)).map{ |_| [_.id, _] }.to_h
